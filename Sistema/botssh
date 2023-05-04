@@ -1,10 +1,10 @@
 #!/bin/bash
 clear
-#--------@THEFATHER12-----------#
+#--------@Al3xv1p-----------#
 source ShellBot.sh
 touch lista
 [[ -z $1 ]] && {
-    clear && echo "INGRESE SU TOKEN" && return 0
+    clear && echo "INFORME O TOKEN" && return 0
 }
 [[ ! -e RESET ]] && touch RESET
 api_bot=$1
@@ -15,9 +15,9 @@ ShellBot.username
 menu() {
     local msg
         msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
-        msg+="<b>🤖 HOLA SEA BIENVENIDO(a) 🤖</b>\n"
+        msg+="<b>🤖 HOLA 😃 🤖</b>\n"
         msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
-        msg+="Genere su prueva en este momento!"
+        msg+="Genere su prueva gratis!"
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
         --reply_markup "$keyboard1" \
@@ -29,14 +29,14 @@ menu() {
 criarteste() {
     [[ $(grep -wc ${callback_query_from_id} lista) != '0' ]] && {
       ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "⚠️ USTED YA CREO SU PRUEVA HOY ⚠️"
+        --text "⚠️ YA CREASTE TU CUENTA HOY⚠️"
       return 0
     }
-    usuario=$(echo DEMO#$(( RANDOM% + 999 )))
+    usuario=$(echo Demo#$(( RANDOM% + 999 )))
     senha=$((RANDOM% + 999999))
     limite='1'
-    tempo='6'
-    tuserdate=$(date '+%C%y/%m/%d' -d " +2 horas")
+    tempo='1'
+    tuserdate=$(date '+%C%y/%m/%d' -d " +1 days")
     useradd -M -N -s /bin/false $usuario -e $tuserdate > /dev/null 2>&1
     (echo "$senha";echo "$senha") | passwd $usuario > /dev/null 2>&1
     echo "$senha" > /etc/SSHPlus/senha/$usuario
@@ -52,7 +52,7 @@ rm -rf /etc/SSHPlus/userteste/$usuario.sh" > /etc/SSHPlus/userteste/$usuario.sh
     echo ${callback_query_from_id} >> lista
     # - ENVIA O SSH
     ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-    --text "$(echo -e "✅ <b>Creado con Exito 😃</b> ✅\n\nUSUARIO: <code>$usuario</code>\nCONTRASEÑA: <code>$senha</code>\n\n⏳ EXPIRA EN: $tempo HORA")" \
+    --text "$(echo -e "✅ <b>Creado con exito</b> ✅\n\nUSUARIO: <code>$usuario</code>\nCONTRASEÑA: <code>$senha</code>\n\n⏳ Expira en: $tempo Hora")" \
     --parse_mode html
     return 0
 }
@@ -60,7 +60,7 @@ rm -rf /etc/SSHPlus/userteste/$usuario.sh" > /etc/SSHPlus/userteste/$usuario.sh
 #enviar app
 enviarapp() {
     ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
-        --text "♻️ ENVIANDO APLICACION, ESPERE..."
+        --text "♻️ ENVIANDO APLICACION, AGUARDE..."
     ShellBot.sendDocument --chat_id ${callback_query_message_chat_id} \
         --document "@/root/app.apk" \
     return 0
