@@ -1312,7 +1312,7 @@ fun_add_revenda() {
     }
     [[ "${callback_query_from_id[$id]}" == "$id_admin" ]] || [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]] && {
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
-            --text "👥 ADICIONAR REVENDEDOR 👥\n\nInforme o nome:" \
+            --text "👥 ADICIONAR REVENDEDOR 👥\n\nInforme nombre:" \
             --reply_markup "$(ShellBot.ForceReply)"
     } || {
         ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
@@ -1356,7 +1356,7 @@ fun_del_rev() {
     }
     [[ "${callback_query_from_id[$id]}" == "$id_admin" ]] || [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]] && {
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
-            --text "🗑 REMOVER REVENDEDOR 🗑\n\nInforme o user dele [Ex: @FLASH_NET_SSH]:" \
+            --text "🗑 REMOVER REVENDEDOR 🗑\n\nrellena campo [Ejm: @INFAME]:" \
             --reply_markup "$(ShellBot.ForceReply)"
     } || {
         ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
@@ -1413,7 +1413,7 @@ del_rev() {
                 sed -i "/\b$_cli_rev\b/d" $suspensos
             }
             ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-                --text "$(echo -e "REMOVIDO COM SUCESSO")" \
+                --text "$(echo -e "REMOVIDO CON EXITO")" \
                 --parse_mode html
             return 0
         } || {
@@ -1455,7 +1455,7 @@ del_rev() {
                 sed -i "/\b$_cli_rev\b/d" /etc/bot/revenda/${message_from_username}/${message_from_username}
             }
             ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-                --text "$(echo -e "REMOVIDO COM SUCESSO")" \
+                --text "$(echo -e "REMOVIDO CON EXITO")" \
                 --parse_mode html
             return 0
         } || {
@@ -1474,7 +1474,7 @@ fun_lim_rev() {
     }
     [[ "${callback_query_from_id[$id]}" == "$id_admin" ]] || [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]] && {
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
-            --text "♾ CAMBIAR LIMITE DE REVENDEDOR ♾\n\nInforme o user dele [Ex: @FLASH_NET_SSH]:" \
+            --text "♾ CAMBIAR LIMITE DE REVENDEDOR ♾\n\nrellena campo [Ejm: @INFAME]:" \
             --reply_markup "$(ShellBot.ForceReply)"
     } || {
         ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
@@ -1520,7 +1520,7 @@ fun_dat_rev() {
     }
     [[ "${callback_query_from_id[$id]}" == "$id_admin" ]] || [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]] && {
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
-            --text "📆 CAMBIAR DURACION DE REVENDEDOR 📆\n\nInforme o user dele [Ex: @FLASH_NET_SSH]:" \
+            --text "📆 CAMBIAR DURACION DE REVENDEDOR 📆\n\nrellena campo [Ejm: @INFAME]:" \
             --reply_markup "$(ShellBot.ForceReply)"
     } || {
         ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
@@ -1632,7 +1632,7 @@ fun_susp_rev() {
     }
     [[ "${callback_query_from_id[$id]}" == "$id_admin" ]] || [[ "$(grep -wc ${callback_query_from_username} $ativos)" != '0' ]] && {
         ShellBot.sendMessage --chat_id ${callback_query_message_chat_id[$id]} \
-            --text "🔒 SUSPENDER REVENDEDOR 🔒\n\nInforme o user dele [Ex: @FLASH_NET_SSH]:" \
+            --text "🔒 SUSPENDER REVENDEDOR 🔒\n\nrellena campo [Ejm: @INFAME]:" \
             --reply_markup "$(ShellBot.ForceReply)"
     } || {
         ShellBot.answerCallbackQuery --callback_query_id ${callback_query_id[$id]} \
@@ -1650,13 +1650,13 @@ susp_rev() {
     }
     [[ -d "/etc/bot/suspensos/$_revs" ]] && {
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-            --text "$(echo -e "O USUARIO JA ESTA SUSPENSO !")" \
+            --text "$(echo -e "EL USUARIO YA ESTA SUSPENDIDO !")" \
             --parse_mode html
         return 0
     }
     [[ ! -d "/etc/bot/revenda/$_revs" ]] && {
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-            --text "$(echo -e "O USUARIO NAO EXISTE !")" \
+            --text "$(echo -e "ESTE USUARIO NO EXISTE !")" \
             --parse_mode html
         return 0
     }
@@ -2063,7 +2063,7 @@ while :; do
                     fun_del_user ${message_text[$id]}
                     [[ "$_erro" == '1' ]] && break
                     ShellBot.sendMessage --chat_id ${message_from_id[$id]} \
-                        --text "✅ *Removido com sucesso.* 🚮" \
+                        --text "✅ *Removido con exito.* 🚮" \
                         --parse_mode markdown
                     ;;
                 '🔐 CAMBIAR CONTRASEÑA 🔐\n\nNombre de usuario:')
@@ -2277,15 +2277,15 @@ while :; do
                     #
                     # Adicionar, remover, limite, data, suspencao, relatorio
                     #
-                '👥 ADICIONAR REVENDEDOR 👥\n\nInforme o nome:')
+                '👥 ADICIONAR REVENDEDOR 👥\n\nInforme nombre:')
                     verifica_acesso
                     [[ "$_erro" == '1' ]] && break
                     echo "Nome: ${message_text[$id]}" >$CAD_ARQ
                     ShellBot.sendMessage --chat_id ${message_from_id[$id]} \
-                        --text 'Informe o user dele [Ex: @FLASH_NET_SSH]:' \
+                        --text 'rellena campo [Ejm: @INFAME]:' \
                         --reply_markup "$(ShellBot.ForceReply)"
                     ;;
-                'Informe o user dele [Ex: @FLASH_NET_SSH]:')
+                'rellena campo [Ejm: @INFAME]:')
                     verifica_acesso
                     [[ "$_erro" == '1' ]] && break
                     _VAR1=$(echo -e ${message_text[$id]} | awk -F '@' {'print $2'})
@@ -2303,10 +2303,10 @@ while :; do
                     }
                     echo "User: ${message_text[$id]}" >>$CAD_ARQ
                     ShellBot.sendMessage --chat_id ${message_from_id[$id]} \
-                        --text 'Quantas SSH ele pode criar:' \
+                        --text 'Cuantas cuentas puede crear:' \
                         --reply_markup "$(ShellBot.ForceReply)"
                     ;;
-                'Quantas SSH ele pode criar:')
+                'Cuantas cuentas puede crear:')
                     verifica_acesso
                     [[ "$_erro" == '1' ]] && break
                     [[ ${message_text[$id]} != ?(+|-)+([0-9]) ]] && {
@@ -2329,10 +2329,10 @@ while :; do
                     }
                     echo "Limite: ${message_text[$id]}" >>$CAD_ARQ
                     ShellBot.sendMessage --chat_id ${message_from_id[$id]} \
-                        --text 'Quantos dias de acesso:' \
+                        --text 'Cuantos dias de acceso:' \
                         --reply_markup "$(ShellBot.ForceReply)"
                     ;;
-                'Quantos dias de acesso:')
+                'Cuantos dias de acceso:')
                     verifica_acesso
                     [[ "$_erro" == '1' ]] && break
                     echo "Validade: ${message_text[$id]}" >>$CAD_ARQ
@@ -2343,7 +2343,7 @@ while :; do
                         --parse_mode html
                     ;;
                     # REMOVE REVENDEDOR
-                '🗑 REMOVER REVENDEDOR 🗑\n\nInforme o user dele [Ex: @FLASH_NET_SSH]:')
+                '🗑 REMOVER REVENDEDOR 🗑\n\nrellena campo [Ejm: @INFAME]:')
                     echo -e "${message_text[$id]}" >$CAD_ARQ
                     _Var=$(sed -n '1 p' $CAD_ARQ | awk -F '@' {'print $2'})
                     [[ -z $_Var ]] && {
@@ -2356,7 +2356,7 @@ while :; do
                     break
                     ;;
                     # ALTERAR LIMITE
-                '♾ CAMBIAR LIMITE DE REVENDEDOR ♾\n\nInforme o user dele [Ex: @FLASH_NET_SSH]:')
+                '♾ CAMBIAR LIMITE DE REVENDEDOR ♾\n\nrellena campo [Ejm: @INFAME]:')
                     verifica_acesso
                     [[ "$_erro" == '1' ]] && break
                     echo -e "Revendedor: ${message_text[$id]}" >$CAD_ARQ
@@ -2433,7 +2433,7 @@ while :; do
                         --parse_mode html
                     # ALTERAR DATA
                     ;;
-                '📆 CAMBIAR DURACION DE REVENDEDOR 📆\n\nInforme o user dele [Ex: @FLASH_NET_SSH]:')
+                '📆 CAMBIAR DURACION DE REVENDEDOR 📆\n\nrellena campo [Ejm: @INFAME]:')
                     verifica_acesso
                     [[ "$_erro" == '1' ]] && break
                     _VAR1=$(echo -e ${message_text[$id]} | awk -F '@' {'print $2'})
@@ -2484,11 +2484,11 @@ while :; do
                     dat_rev $CAD_ARQ
                     [[ "$_erro" == '1' ]] && break
                     ShellBot.sendMessage --chat_id ${message_from_id[$id]} \
-                        --text "$(echo -e "=×=×=×=×=×=×=×=×=×=×=×\n<b>✅ DATA REVENDA ALTERADA !</b> !\n=×=×=×=×=×=×=×=×=×=×=×\n\n$(<$CAD_ARQ)")" \
+                        --text "$(echo -e "=×=×=×=×=×=×=×=×=×=×=×\n<b>✅ DATA DE REVENTA ALTERADO !</b> !\n=×=×=×=×=×=×=×=×=×=×=×\n\n$(<$CAD_ARQ)")" \
                         --parse_mode html
                     ;;
                     # SUSPENDER REVENDEDOR
-                '🔒 SUSPENDER REVENDEDOR 🔒\n\nInforme o user dele [Ex: @FLASH_NET_SSH]:')
+                '🔒 SUSPENDER REVENDEDOR 🔒\n\nrellena campo [Ejm: @INFAME]:')
                     _VAR1=$(echo -e ${message_text[$id]} | awk -F '@' {'print $2'})
                     [[ -z $_VAR1 ]] && {
                         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
