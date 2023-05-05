@@ -79,7 +79,7 @@ fun_ajuda() {
         env_msg+="⚠️ <i>Comandos Disponiveis</i>\n\n"
         env_msg+="[<b>01</b>] /menu = Exibe menu\n"
         env_msg+="[<b>02</b>] /info = Exibe informacoes\n"
-        env_msg+="[<b>03</b>] /ajuda = Informacoes sobre opcoes\n\n"
+        env_msg+="[<b>03</b>] /ayuda = Informacoes sobre opcoes\n\n"
         env_msg+="⚠️ <i>Opções Disponiveis</i>\n\n"
         env_msg+="• <u>CREAR USUARIO</u> = Cria usuario ssh\n\n"
         env_msg+="• <u>CREAR DEMO</u> = Cria teste ssh\n\n"
@@ -98,7 +98,7 @@ fun_ajuda() {
         env_msg+="• <u>REVENTAS</u> = Gerenciar Revendas\n\n"
         env_msg+="• <u>AUTOBACKUP</u> = lig/Des Backup automatico\n\n"
         env_msg+="• <u>RELATORIO</u> = Informacoes sobre revendas\n\n"
-        env_msg+="• <u>AJUDA</u> = Informacoes sobre opcoes\n\n"
+        env_msg+="• <u>AYUDA</u> = Informacoes sobre opcoes\n\n"
         ShellBot.sendMessage --chat_id $id_chatuser \
             --text "$(echo -e $env_msg)" \
             --parse_mode html
@@ -115,7 +115,7 @@ fun_ajuda() {
         env_msg+="⚠️ <i>Comandos Disponiveis</i>\n\n"
         env_msg+="[<b>01</b>] /menu = Exibe menu\n"
         env_msg+="[<b>02</b>] /info = Exibe informacoes\n"
-        env_msg+="[<b>03</b>] /ajuda = Informacoes sobre opcoes\n\n"
+        env_msg+="[<b>03</b>] /ayuda = Informacoes sobre opcoes\n\n"
         env_msg+="⚠️ <i>Opções Disponiveis</i>\n\n"
         env_msg+="• <u>CREAR USUARIO</u> = Cria usuario ssh\n\n"
         env_msg+="• <u>CREAR DEMO</u> = Cria teste ssh\n\n"
@@ -128,7 +128,7 @@ fun_ajuda() {
         env_msg+="• <u>EXPIRADOS</u> = Remove ssh expirados\n\n"
         env_msg+="• <u>REVENTAS</u> = Gerenciar Revendas\n\n"
         env_msg+="• <u>RELATORIO</u> = Informacoes sobre revendas\n\n"
-        env_msg+="• <u>AJUDA</u> = Informacoes sobre opcoes\n\n"
+        env_msg+="• <u>AYUDA</u> = Informacoes sobre opcoes\n\n"
         ShellBot.sendMessage --chat_id $id_chatuser \
             --text "$(echo -e $env_msg)" \
             --parse_mode html
@@ -141,7 +141,7 @@ fun_ajuda() {
         env_msg+="⚠️ <i>Comandos Disponiveis</i>\n\n"
         env_msg+="[<b>01</b>] /menu = Exibe menu\n"
         env_msg+="[<b>02</b>] /info = Exibe informacoes\n"
-        env_msg+="[<b>03</b>] /ajuda = Informacoes sobre opcoes\n\n"
+        env_msg+="[<b>03</b>] /ayuda = Informacoes sobre opcoes\n\n"
         env_msg+="⚠️ <i>Opções Disponiveis</i>\n\n"
         env_msg+="• <u>CREAR USUARIO</u> = Cria usuario ssh\n\n"
         env_msg+="• <u>CREAR DEMO</u> = Cria teste ssh\n\n"
@@ -152,7 +152,7 @@ fun_ajuda() {
         env_msg+="• <u>ALTERAR LIMITE</u> = Altera limite ssh\n\n"
         env_msg+="• <u>ALTERAR DATA</u> = Altera data ssh\n\n"
         env_msg+="• <u>EXPIRADOS</u> = Remove ssh expirados\n\n"
-        env_msg+="• <u>AJUDA</u> = Informacoes sobre opcoes\n\n"
+        env_msg+="• <u>AYUDA</u> = Informacoes sobre opcoes\n\n"
         ShellBot.sendMessage --chat_id $id_chatuser \
             --text "$(echo -e $env_msg)" \
             --parse_mode html
@@ -1261,9 +1261,9 @@ restaure_backup() {
 }
 msg_bem_vindo() {
     local msg
-    msg="✌️😃 Ola <b>${message_from_first_name[$id]}</b>\n\nBEM VINDO(a)\n\n"
+    msg="✌️😃 Hola <b>${message_from_first_name[$id]}</b>\n\nBIENVENIDO\n\n"
     msg+="Para acessar o menu\nclick ou execute [ /menu ]\n\n"
-    msg+="Para obter informacoes\nclick ou execute [ /ajuda ]\n\n"
+    msg+="Para obter informacoes\nclick ou execute [ /ayuda ]\n\n"
     ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
         --parse_mode html
@@ -1762,7 +1762,7 @@ ShellBot.InlineKeyboardButton --button 'menu1' --line 5 --text 'SPEEDTESTE' --ca
 ShellBot.InlineKeyboardButton --button 'menu1' --line 6 --text 'BACKUP USUARIOS' --callback_data '_backupusers'
 ShellBot.InlineKeyboardButton --button 'menu1' --line 7 --text "ALTO BACKUP" --callback_data '_autobkp'
 ShellBot.InlineKeyboardButton --button 'menu1' --line 8 --text 'RELATORIO' --callback_data '_relatorio'
-ShellBot.InlineKeyboardButton --button 'menu1' --line 9 --text 'AJUDA' --callback_data '_ajuda'
+ShellBot.InlineKeyboardButton --button 'menu1' --line 9 --text 'AYUDA' --callback_data '_ajuda'
 ShellBot.regHandleFunction --function fun_adduser --callback_data _criaruser
 ShellBot.regHandleFunction --function fun_add_teste --callback_data _criarteste
 ShellBot.regHandleFunction --function fun_deluser --callback_data _deluser
@@ -1798,7 +1798,7 @@ ShellBot.InlineKeyboardButton --button 'menu2' --line 4 --text 'EXPIRADOS' --cal
 ShellBot.InlineKeyboardButton --button 'menu2' --line 5 --text 'ALTERAR DATA' --callback_data '_altdata2'
 ShellBot.InlineKeyboardButton --button 'menu2' --line 5 --text 'REVENTA' --callback_data '_opcoesrev2'
 ShellBot.InlineKeyboardButton --button 'menu2' --line 6 --text 'RELATORIO' --callback_data '_relatorio2'
-ShellBot.InlineKeyboardButton --button 'menu2' --line 6 --text 'AJUDA' --callback_data '_ajuda2'
+ShellBot.InlineKeyboardButton --button 'menu2' --line 6 --text 'AYUDA' --callback_data '_ajuda2'
 ShellBot.regHandleFunction --function fun_adduser --callback_data _criaruser2
 ShellBot.regHandleFunction --function fun_add_teste --callback_data _criarteste2
 ShellBot.regHandleFunction --function fun_deluser --callback_data _deluser2
@@ -1826,7 +1826,7 @@ ShellBot.InlineKeyboardButton --button 'menu3' --line 3 --text 'INFO USUARIOS' -
 ShellBot.InlineKeyboardButton --button 'menu3' --line 4 --text 'CAMBIAR CONTRASEÑA' --callback_data '_altsenha3'
 ShellBot.InlineKeyboardButton --button 'menu3' --line 4 --text 'EXPIRADOS' --callback_data '_expirados3'
 ShellBot.InlineKeyboardButton --button 'menu3' --line 5 --text 'ALTERAR DATA' --callback_data '_altdata3'
-ShellBot.InlineKeyboardButton --button 'menu3' --line 5 --text 'AJUDA' --callback_data '_ajuda3'
+ShellBot.InlineKeyboardButton --button 'menu3' --line 5 --text 'AYUDA' --callback_data '_ajuda3'
 ShellBot.regHandleFunction --function fun_adduser --callback_data _criaruser3
 ShellBot.regHandleFunction --function fun_add_teste --callback_data _criarteste3
 ShellBot.regHandleFunction --function fun_deluser --callback_data _deluser3
@@ -1883,7 +1883,7 @@ while :; do
                     [[ "${comando[0]}" = "/start" ]] && msg_bem_vindo
                     [[ "${comando[0]}" = "/menu" ]] && fun_menu
                     [[ "${comando[0]}" = "/info" ]] && infouserbot
-                    [[ "${comando[0]}" = "/hrlp" || "${comando[0]}" = "/ajuda" ]] && fun_ajuda
+                    [[ "${comando[0]}" = "/hrlp" || "${comando[0]}" = "/ayuda" ]] && fun_ajuda
                     [[ "${comando[0]}" = "/bot" || "${comando[0]}" = "/sobre" ]] && sobremim
                     ;;
                 esac
@@ -1896,14 +1896,14 @@ while :; do
                     [[ "$_erro" == '1' ]] && break
                     [[ "$(awk -F : '$3 >= 1000 { print $1 }' /etc/passwd | grep -w ${message_text[$id]} | wc -l)" != '0' ]] && {
                         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-                            --text "$(echo -e "❌ Erro! USUARIO INVALIDO ❌\n\n⚠️ Informe Outro Nome..")" \
+                            --text "$(echo -e "❌ Error! USUARIO INVALIDO ❌\n\n⚠️ Informe Outro Nome..")" \
                             --parse_mode html
                         >$CAD_ARQ
                         break
                     }
                     [ "${message_text[$id]}" == 'root' ] && {
                         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-                            --text "$(echo -e "❌ ERRO! USUARIO INVALIDO ❌\n\n⚠️ Informe Outro Nome..")" \
+                            --text "$(echo -e "❌ ERROR! USUARIO INVALIDO ❌\n\n⚠️ Informe Outro Nome..")" \
                             --parse_mode html
                         >$CAD_ARQ
                         break
@@ -1911,7 +1911,7 @@ while :; do
                     sizemin=$(echo -e ${#message_text[$id]})
                     [[ "$sizemin" -lt '4' ]] && {
                         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-                            --text "$(echo -e "❌ Erro !\n\nUse no mínimo 4 caracteres\n[EX: test]")" \
+                            --text "$(echo -e "❌ Error !\n\nUse mínimo 4 caracteres\n[EX: test]")" \
                             --parse_mode html
                         >$CAD_ARQ
                         break
