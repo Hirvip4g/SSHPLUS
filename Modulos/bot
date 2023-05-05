@@ -1262,8 +1262,8 @@ restaure_backup() {
 msg_bem_vindo() {
     local msg
     msg="✌️😃 Hola <b>${message_from_first_name[$id]}</b>\n\nBIENVENIDO\n\n"
-    msg+="Para acceder al menu\nprecione👉 [ /menu ]\n\n"
-    msg+="Para obtener información\nprecione👉 [ /ayuda ]\n\n"
+    msg+="Para acessar o menu\nclick ou execute [ /menu ]\n\n"
+    msg+="Para obter informacoes\nclick ou execute [ /ayuda ]\n\n"
     ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
         --parse_mode html
