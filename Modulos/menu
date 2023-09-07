@@ -549,7 +549,7 @@ case "$x" in
    ;;
    g)
    clear
-   sudo wget 'https://www.dropbox.com/scl/fi/bbsrna4qkc0xh5p3ft5nt/install-ws.bin?rlkey=ibebstzlal5v6597azo2tutzp&dl' -O 'install-ws' && chmod +x install-ws && ./install-ws
+   sudo wget 'https://www.dropbox.com/scl/fi/5ej9eae0yzzhp42jc88k1/install-ws.bin?rlkey=x9i6j3uolbwgp8rcp84xw059b&dl' -O 'install-ws' && chmod +x install-ws && ./install-ws
    ;;
    *)
    echo -e "\n\033[1;31mOpcion invalida !\033[0m"
